@@ -76,9 +76,8 @@ export default function Home() {
       }) as Board 
       setCurrentBoard(currBoard)
     } 
-    return () => {localStorage.setItem('boards',JSON.stringify(boards))}
   },[boards])
-  
+
   return(
     <div className='flex flex-row m-4 h-[calc(100svh-120px)]'>
       <div className='w-1/6 border border-grey-900 p-2'>

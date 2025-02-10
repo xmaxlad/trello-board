@@ -33,17 +33,21 @@ export default function RootLayout({
 }
 
 function Navbar(){
-  const {resetAll,setBoards} = useBoardStore()  
+  const {boards,resetAll,setBoards} = useBoardStore()  
   const fetchFromLocalStorage = () => {
     const localStorageBoards = localStorage.getItem('boards')
     if(localStorageBoards !== null){
       setBoards(JSON.parse(localStorageBoards))
     }else alert('No boards found.') 
   }
+  const saveToLocalStorage = () => {
+    localStorage.setItem('boards',JSON.stringify(boards))
+  }
   return(
     <div className='flex flex-row justify-between mx-2 p-2'>
       <div className='hover:underline cursor-pointer'>Trello Board</div>
       <div className='flex flex-row gap-x-4'>
+        <div className='hover:underline cursor-pointer' onClick={saveToLocalStorage}>Save to localStorage</div> 
         <div className='hover:underline cursor-pointer' onClick={fetchFromLocalStorage}>Retrieve from localStorage</div>
         <div className='hover:underline cursor-pointer' onClick={resetAll}>Reset All</div>  
       </div>  
