@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Trello Board
+Made with NextJS.
 
-## Getting Started
+## How to set up - 
 
-First, run the development server:
+### To run this locally 
+Clone this repository locally and `cd` into the folder then run
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+`pnpm install`
+`pnpm dev`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features - 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Add a board 
+Click on a plus sign to add a new board, enter a name and save.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Reset a board
+Click on the Restart icon on the right to board name to reset the board.
 
-## Learn More
+### Reset all state
+Click on the Reset All in the top right to clear all the state.
 
-To learn more about Next.js, take a look at the following resources:
+### Create a list
+Click on the plus sign and enter a name and then hit Create list.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Rename a list
+Click on the list name and rename easily.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Add a card to list
+Click on the plus sign at the bottom right of list to add a new card.
 
-## Deploy on Vercel
+### Edit Card
+Click on the card to edit, add description and due date.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Save to `localStorage`
+Click on the `Save to localStorage` in the Navbar to save the boards to `localStorage`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Fetch from `localStorage`
+Click on the `Fetch from localStorage` in the Navbar to fetch and populate the board from `localStorage`
+
+
