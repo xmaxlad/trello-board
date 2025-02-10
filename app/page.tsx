@@ -2,28 +2,25 @@
 
 import {useEffect, useState} from 'react'
 import { useBoardStore } from '@/store/store'
-import {Plus,X,Trash,Ellipsis,ChevronRight,Pencil,ListRestart} from 'lucide-react'
+import {Plus,X,Trash,ChevronRight,ListRestart} from 'lucide-react'
 import BoardModal from '@/components/BoardModal'
 import {Board,List,Card} from '@/store/store' 
 import clsx from 'clsx'
 import CardModal from '@/components/CardModal'
 
 export default function Home() {
-  const {boards,removeBoard,addList,moveCard,removeList,updateListName,addCard,removeCard,updateCard, reorderList,reorderCard,resetBoard} = useBoardStore()
+  const {boards,addList,moveCard,removeList,updateListName,addCard,removeCard,updateCard, reorderList,reorderCard,resetBoard} = useBoardStore()
   const [currentBoard,setCurrentBoard] = useState<Board | null>(null) 
   const [currentList,setCurrentList] = useState<List | null>(null) 
   const [currentCard,setCurrentCard] = useState<Card | null>(null)  
 
   const [openBoardModal,setOpenBoardModal] = useState<boolean>(false) 
   const [openCardModal,setOpenCardModal] = useState<boolean>(false) 
-  const [editListName,setEditListName] = useState<boolean>(false) 
 
   const [showListCreate,setShowListCreate] = useState<boolean>(false)
   const [newListName,setNewListName] = useState<string>('') 
   const [showCreateCard,setShowCreateCard] = useState<string | boolean>(false)  
   const [newCardName,setNewCardName] = useState('')
-
-  const [openEllipsisModal, setOpenEllipsisModal] = useState<boolean>(false)
 
   const handleCardDragStart = (e: React.DragEvent<HTMLDivElement>, cardId: string, fromListId: string,fromIndex : number) => {
     e.dataTransfer.setData("cardId", cardId)

@@ -1,7 +1,6 @@
 import {useState} from 'react'
 import {Card} from '@/store/store'
 import {X} from 'lucide-react'
-import {useBoardStore} from '@/store/store'
 
 export default function CardModal({boardId,listId,card,updateCard,removeCard,setOpenCardModal}:{boardId:string, listId: string, card : Card,updateCard: (boardId: string, listId: string, cardId: string, name: string, description: string, dueDate?: Date) => void,removeCard: (boardId: string, listId: string, cardId: string) => void, setOpenCardModal : (open : boolean)=>void}){
     const [newCardName,setNewCardName] = useState(card.name)
