@@ -22,6 +22,7 @@ export type Board = {
 
 type BoardState = {
   boards: Board[];
+  setBoards : (boards : Board[]) => void;
   addBoard: (name: string) => void;
   removeBoard: (boardId: string) => void;
   addList: (boardId: string, name: string) => void;
@@ -39,6 +40,11 @@ type BoardState = {
 
 export const useBoardStore = create<BoardState>((set) => ({
   boards: [],
+
+  setBoards : (boards) =>
+    set(()=>({
+      boards : boards 
+    })),
 
   addBoard: (name) =>
     set((state) => ({

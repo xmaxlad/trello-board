@@ -75,7 +75,8 @@ export default function Home() {
         return board.id === currentBoard.id
       }) as Board 
       setCurrentBoard(currBoard)
-    }
+    } 
+    return () => {localStorage.setItem('boards',JSON.stringify(boards))}
   },[boards])
   
   return(

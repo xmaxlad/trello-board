@@ -33,12 +33,18 @@ export default function RootLayout({
 }
 
 function Navbar(){
-  const {resetAll} = useBoardStore()  
+  const {resetAll,setBoards} = useBoardStore()  
+  const fetchFromLocalStorage = () => {
+    const localStorageBoards = localStorage.getItem('boards')
+    if(localStorageBoards !== null){
+      setBoards(JSON.parse(localStorageBoards))
+    }else alert('No boards found.') 
+  }
   return(
     <div className='flex flex-row justify-between mx-2 p-2'>
       <div className='hover:underline cursor-pointer'>Trello Board</div>
       <div className='flex flex-row gap-x-4'>
-        <div className='hover:underline cursor-pointer' onClick={()=>{}}>Save to localStorage</div> 
+        <div className='hover:underline cursor-pointer' onClick={fetchFromLocalStorage}>Retrieve from localStorage</div>
         <div className='hover:underline cursor-pointer' onClick={resetAll}>Reset All</div>  
       </div>  
     </div>
@@ -49,7 +55,7 @@ function Footer(){
   return(
     <div className='flex flex-row justify-between mx-2 p-2'>
       <div className='hover:underline cursor-pointer'>
-        <a href="">Github Link</a>
+        <a href="https://github.com/xmaxlad/trello-board">Github Link</a>
       </div>  
       <div className='hover:underline cursor-pointer'>
         Photo by <a href="https://unsplash.com/@pawel_czerwinski?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Pawel Czerwinski</a> on <a href="https://unsplash.com/photos/a-blue-and-white-abstract-background-with-wavy-lines-EnUCKcXwrnY?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
